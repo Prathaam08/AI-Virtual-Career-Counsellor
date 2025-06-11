@@ -6,6 +6,8 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import string
 from deep_translator import GoogleTranslator
+import re
+
 
 # NLTK downloads
 nltk.download('punkt', quiet=True)
@@ -21,10 +23,13 @@ def load_data():
     return pd.read_csv("data/careers.csv")
 
 # Preprocessing
+
 def preprocess_text(text):
-    tokens = word_tokenize(text.lower())
-    stop_words = set(stopwords.words('english') + list(string.punctuation))
-    return [lemmatizer.lemmatize(t) for t in tokens if t.isalnum() and t not in stop_words]
+    # Tokenize with regex instead of NLTK's word_tokenize
+    tokens = re.findall(r'\b\w+\b', text.lower())
+    stop_words = set(stopwords.words('english'))
+    return [lemmatizer.lemmatize(t) for t in tokens if t not in stop_words]
+
 
 # Career recommendation
 def recommend_career(user_input, df, personality=None):
