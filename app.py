@@ -148,7 +148,7 @@ def translate_to_english(text):
 # UI
 st.set_page_config(page_title="AI Career Counsellor", layout="centered")
 
-st.image("assets/banner.png", use_container_width=True)
+st.image("assets/banner.png", use_column_width=True)
 st.title("💼 AI Career Counsellor Chatbot")
 st.caption("Powered by NLP, job market data, and learning links.")
 
