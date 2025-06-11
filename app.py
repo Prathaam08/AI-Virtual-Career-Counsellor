@@ -154,7 +154,7 @@ st.caption("Powered by NLP, job market data, and learning links.")
 
 st.sidebar.title("📚 About")
 st.sidebar.info("This AI bot suggests careers based on your interests using NLP and job trends from Adzuna API.")
-st.sidebar.markdown("🌐 [Source Code](https://github.com/your-repo)")
+st.sidebar.markdown("🌐 [Source Code](https://github.com/Prathaam08/AI-Virtual-Career-Counsellor.git)")
 
 # Load data
 df = load_data()
